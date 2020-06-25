@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        /*
+        Reduce-
+        ActivityMainBinding act_main = ActivityMainBinding.inflate(getLayoutInflater());
+        RecyclerView rvMovies = act_main.rvMovies;
+
+         */
         movies = new ArrayList<>();
         //create the adapter
         final MovieAdapter movieAdapter = new MovieAdapter(this,movies);
