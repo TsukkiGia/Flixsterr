@@ -19,13 +19,20 @@ import com.example.flixster.models.Movie;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
+    public interface OnClickListener {
+        void onItemClicked (int position);
+    }
     Context context;
     List<Movie> movies;
+    OnClickListener onClickListener;
 
     public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
         this.movies = movies;
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
@@ -55,6 +62,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
+        TextView tvView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,13 +82,24 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             //if phone is in landscape, image Url = backdrop
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
                 imageURL = movie.getBackdropPath();
+                Glide.with(context)
+                        .load(movie.getBackdropPath())
+                        .placeholder(R.drawable.flicks_backdrop_placeholder)
+                        .transform(new RoundedCornersTransformation(30, 10))
+                        .into(ivPoster);
             }
             //else, image url = posterpath
             else {
-                imageURL = movie.getPosterPath();
+                Glide.with(context)
+                        .load(movie.getPosterPath())
+                        .placeholder(R.drawable.flicks_movie_placeholder)
+                        .transform(new RoundedCornersTransformation(30, 10))
+                        .into(ivPoster);
             }
 
-            Glide.with(context).load(imageURL).into(ivPoster);
+
+
+            //Glide.with(context).load(imageURL).into(ivPoster);
 
         }
     }
