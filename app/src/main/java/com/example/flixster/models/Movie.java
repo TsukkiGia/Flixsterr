@@ -17,6 +17,7 @@ public class Movie {
     String overview;
     Double voteAverage;
     int id;
+    String relDate;
     //creating a movie object from a JSONobject
 
     public Movie (){}
@@ -29,6 +30,10 @@ public class Movie {
         return id;
     }
 
+    public String getRelDate() {
+        return relDate;
+    }
+
     public Movie(JSONObject jsonObject) throws JSONException {
         backdropPath = jsonObject.getString("backdrop_path");
         posterPath = jsonObject.getString("poster_path");
@@ -36,6 +41,7 @@ public class Movie {
         overview = jsonObject.getString("overview");
         voteAverage = jsonObject.getDouble("vote_average");
         id = jsonObject.getInt("id");
+        relDate = jsonObject.getString("release_date");
     }
     //returns a list of movies objects by adding each movie in the jsonarray as a new Movie object to a list, which is then returned
     public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {

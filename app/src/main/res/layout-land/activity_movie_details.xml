@@ -12,16 +12,37 @@
     android:background="#000000"
     android:backgroundTint="#000000">
 
+    <ImageView
+        android:id="@+id/exitDetails"
+        android:layout_width="15dp"
+        android:layout_height="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="23dp"
+        app:srcCompat="@drawable/cross" />
+
+    <TextView
+        android:id="@+id/releaseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="-2dp"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="4dp"
         android:fontFamily="casual"
-        android:paddingTop="10dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#a11d33"
@@ -35,25 +56,25 @@
         style="@style/Widget.AppCompat.RatingBar.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
+        android:layout_below="@+id/releaseDate"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:numStars="5"
-        android:progressBackgroundTint="#a11d33"
-        android:progressTint="#a11d33"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#FFFFFF"
         android:stepSize="0.5" />
 
     <TextView
         android:id="@+id/tvOverview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rbVoteAverage"
+        android:layout_below="@+id/movieBackdrop"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="273dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="18dp"
         android:fontFamily="@font/alegreya_sans"
         android:justificationMode="inter_word"
         android:text="TextView"
@@ -65,23 +86,11 @@
         android:id="@+id/movieBackdrop"
         android:layout_width="match_parent"
         android:layout_height="219dp"
+        android:layout_below="@+id/rbVoteAverage"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="159dp"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="-5dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <TextView
-        android:id="@+id/releaseDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="70dp"
-        android:text="TextView"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/playButton"
@@ -96,15 +105,5 @@
         android:layout_marginEnd="175dp"
         android:layout_marginBottom="81dp"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/exitDetails"
-        android:layout_width="15dp"
-        android:layout_height="16dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="23dp"
-        app:srcCompat="@drawable/cross" />
 </RelativeLayout>
 </ScrollView>

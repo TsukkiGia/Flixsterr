@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -20,20 +20,20 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovies"
         android:layout_width="match_parent"
-        android:layout_height="672dp"
+        android:layout_height="365dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="56dp" />
+        android:layout_marginTop="46dp" />
 
     <TextView
         android:id="@+id/mainLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="282dp"
-        android:layout_marginBottom="11dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
         android:fontFamily="@font/acme"
         android:text="Recently Added"
         android:textColor="#FFFFFF"

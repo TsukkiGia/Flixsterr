@@ -24,7 +24,7 @@ import org.parceler.Parcels;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 import okhttp3.Headers;
 
-import static com.example.flixster.MainActivity.NOW_PLAYING_URL;
+//import static com.example.flixster.MainActivity.NOW_PLAYING_URL;
 
 public class MovieDetailsActivity extends AppCompatActivity {
     Movie movie;
@@ -32,7 +32,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvOverview;
     RatingBar rbVoteAverage;
     ImageView movieBackdrop;
-
+    TextView releaseDate;
+    ImageView playButton;
+    ImageView exitDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvTitle = (TextView) act_details.tvTitle;
         tvOverview = (TextView) act_details.tvOverview;
         rbVoteAverage = (RatingBar) act_details.rbVoteAverage;
-         /*
-        setContentView(R.layout.activity_movie_details);
-        tvTitle = (TextView) findViewById(R.id.tvTitle);
-        tvOverview = (TextView) findViewById(R.id.tvOverview);
-        rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);*/
+        releaseDate = (TextView) act_details.releaseDate;
+        playButton = (ImageView) act_details.playButton;
+        exitDetails = (ImageView) act_details.exitDetails;
+
+        exitDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         movieBackdrop = act_details.movieBackdrop;
 
@@ -56,12 +63,17 @@ public class MovieDetailsActivity extends AppCompatActivity {
         Log.d("MovieDetailsActivity","Showing details of movie "+movie.getTitle());
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+        releaseDate.setText(movie.getRelDate());
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
         Glide.with(this)
                 .load(movie.getBackdropPath())
                 .transform(new RoundedCornersTransformation(30, 10))
                 .into(movieBackdrop);
+        Glide.with(this)
+                .load(R.drawable.playbutton)
+                .into(playButton);
+
         movieBackdrop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +88,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                                     String newid = String.valueOf(jsonObject.getJSONArray("results").getJSONObject(0).getString("key"));
                                     Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
                                     i.putExtra("TRAILERID",newid);
+                                    i.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
                                     startActivityForResult(i, 100);
 
                                 } catch (JSONException e) {
