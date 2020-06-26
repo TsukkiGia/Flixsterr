@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.flixster.adapters.MovieAdapter;
+import com.example.flixster.databinding.ActivityMainBinding;
 import com.example.flixster.models.Movie;
 
 import org.json.JSONArray;
@@ -27,6 +28,7 @@ import okhttp3.Headers;
 public class MainActivity extends AppCompatActivity {
     public static final String NOW_PLAYING_URL =  "https://api.themoviedb.org/3/movie/now_playing?api_key=1bd69aa220d0d18df5e880ec220f9cf9";
     public static final String TAG = "MainActivity";
+    public static final String APIKEY = "AIzaSyAl6h1X-LNm4EWvj07U6AaxDv7yWq9v6OI";
 
     List<Movie> movies;
 
@@ -35,12 +37,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
-        /*
-        Reduce-
-        ActivityMainBinding act_main = ActivityMainBinding.inflate(getLayoutInflater());
-        RecyclerView rvMovies = act_main.rvMovies;
 
-         */
+        //ActivityMainBinding act_main = ActivityMainBinding.inflate(getLayoutInflater());
+       // RecyclerView rvMovies = act_main.rvMovies;
+
         movies = new ArrayList<>();
         //create the adapter
         final MovieAdapter movieAdapter = new MovieAdapter(this,movies);
