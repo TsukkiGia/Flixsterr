@@ -2,6 +2,7 @@ package com.example.flixster;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.codepath.asynchttpclient.AsyncHttpClient;
@@ -84,12 +86,22 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
                                 JSONObject jsonObject = json.jsonObject;
                                 try {
-                                    Log.d("ACT", String.valueOf(jsonObject.getJSONArray("results").getJSONObject(0).getString("key")));
+                                    String ref = "YouTube";
                                     String newid = String.valueOf(jsonObject.getJSONArray("results").getJSONObject(0).getString("key"));
-                                    Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
-                                    i.putExtra("TRAILERID",newid);
-                                    i.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
-                                    startActivityForResult(i, 100);
+                                    String site = String.valueOf(jsonObject.getJSONArray("results").getJSONObject(0).getString("site"));
+
+
+
+                                    if (ref.equals(site) == false || newid==null) {
+                                        Toast.makeText(getApplicationContext(),"This video is not available on YouTube",Toast.LENGTH_SHORT);
+                                    }
+                                    else {
+
+                                        Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
+                                        i.putExtra("TRAILERID", newid);
+                                        i.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
+                                        startActivityForResult(i, 100);
+                                    }
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
