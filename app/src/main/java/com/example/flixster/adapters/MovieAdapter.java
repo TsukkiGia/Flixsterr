@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.flixster.MovieDetailsActivity;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
+import com.example.flixster.databinding.ItemMovieBinding;
 
 
 import org.parceler.Parcels;
@@ -32,6 +33,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     Context context;
     List<Movie> movies;
     OnClickListener onClickListener;
+    ItemMovieBinding item_bind;
 
     public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
@@ -43,8 +45,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @Override
     //inflating a layout from the XML and returning the holder
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie,parent,false);
-        return new ViewHolder(movieView);
+        LayoutInflater inflate = LayoutInflater.from(parent.getContext());
+        item_bind = ItemMovieBinding.inflate(inflate,parent,false);
+        //View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie,parent,false);
+        return new ViewHolder(item_bind);
     }
 
     @Override
@@ -68,11 +72,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         ImageView ivPoster;
 
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvOverview= itemView.findViewById(R.id.tvOverview);
-            ivPoster = itemView.findViewById(R.id.ivPoster);
+        public ViewHolder(@NonNull ItemMovieBinding binding) {
+            super(binding.getRoot());
+            tvTitle = binding.tvTitle;
+            tvOverview= binding.tvOverview;
+            ivPoster = binding.ivPoster;
             itemView.setOnClickListener(this);
 
 
