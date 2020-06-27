@@ -87,13 +87,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
                                 JSONObject jsonObject = json.jsonObject;
                                 try {
                                     String ref = "YouTube";
+                                    Log.d("ACT",String.valueOf(movie.getId()));
                                     String newid = String.valueOf(jsonObject.getJSONArray("results").getJSONObject(0).getString("key"));
                                     String site = String.valueOf(jsonObject.getJSONArray("results").getJSONObject(0).getString("site"));
+                                    Log.d("ACT",String.valueOf(movie.getId()));
+                                    Log.d("ACT",site);
 
 
-
-                                    if (ref.equals(site) == false || newid==null) {
-                                        Toast.makeText(getApplicationContext(),"This video is not available on YouTube",Toast.LENGTH_SHORT);
+                                    if (ref.equals(site) == false ) {
+                                        Toast.makeText(getApplicationContext(),"This video is not available on YouTube",Toast.LENGTH_SHORT).show();
                                     }
                                     else {
 
@@ -104,6 +106,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                                     }
 
                                 } catch (JSONException e) {
+                                    Toast.makeText(getApplicationContext(),"This video is not available on YouTube",Toast.LENGTH_SHORT).show();
                                     e.printStackTrace();
                                 }
                                 //JSONArray results = jsonObject.getJSONArray("results");
