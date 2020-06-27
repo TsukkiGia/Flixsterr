@@ -25,7 +25,7 @@ The following **stretch** features are implemented:
 The following **additional** features are implemented:
 
 * [x] Included an exit button on Movie Detail Activity
-* [x] Included a play overlay on Movie Backdrop in Movie Backdrop Activity
+* [x] Included a play overlay on Movie Backdrop in Movie Detail Activity
 * [x] Included error handlers on invalid or non-Youtube movie trailers
 * [x] Included a taskbar on homepage
 * [x] Included ScrollViews for Movie Detail Activity and Movie Trailer Activity
