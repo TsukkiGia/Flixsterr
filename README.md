@@ -11,8 +11,8 @@ The following **required** functionality is completed:
 * [x] User can **scroll through current movies** from the Movie Database API
 * [x] Display a nice default [placeholder graphic](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library#advanced-usage) for each image during loading
 * [x] For each movie displayed, user can see the following details:
-  * [x] Title, Poster Image, Overview (Portrait mode)
-  * [x] Title, Backdrop Image, Overview (Landscape mode)
+* [x] Title, Poster Image, Overview (Portrait mode)
+* [x] Title, Backdrop Image, Overview (Landscape mode)
 * [x] Allow user to view details of the movie including ratings and popularity within a separate activity
 
 The following **stretch** features are implemented:
@@ -25,6 +25,7 @@ The following **stretch** features are implemented:
 The following **additional** features are implemented:
 
 * [x] Included an exit button on Movie Detail Activity
+* [x] Included a play overlay on Movie Backdrop in Movie Detail Activity
 * [x] Included error handlers on invalid or non-Youtube movie trailers
 * [x] Included a taskbar on homepage
 * [x] Included ScrollViews for Movie Detail Activity and Movie Trailer Activity
@@ -35,15 +36,14 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-
-
+- Filtering the non-Youtube videos because I did not know how to compare strings in Java
+- Formatting the display after adding rounded borders to the movie posters/backdrops
 
 ## Open-source libraries used
 
