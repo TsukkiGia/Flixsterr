@@ -12,6 +12,18 @@
     android:background="#000000"
     android:backgroundTint="#000000">
 
+    <TextView
+        android:id="@+id/Popularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="24dp"
+        android:text="80"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/exitDetails"
         android:layout_width="15dp"
@@ -88,8 +100,8 @@
         android:layout_height="219dp"
         android:layout_below="@+id/rbVoteAverage"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="-4dp"
-        android:layout_marginTop="-5dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="10dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <ImageView

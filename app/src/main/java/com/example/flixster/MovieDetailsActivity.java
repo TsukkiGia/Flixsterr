@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView releaseDate;
     ImageView playButton;
     ImageView exitDetails;
+    TextView popularity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         releaseDate = (TextView) act_details.releaseDate;
         playButton = (ImageView) act_details.playButton;
         exitDetails = (ImageView) act_details.exitDetails;
+        popularity = (TextView) act_details.Popularity;
 
         exitDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +69,13 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
         releaseDate.setText(movie.getRelDate());
+        popularity.setText(String.valueOf(movie.getPopularity()));
+        if (movie.getPopularity()>80) {
+            popularity.setTextColor(Color.GREEN);
+        }
+        else if (movie.getPopularity()<50) {
+            popularity.setTextColor(Color.RED);
+        }
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
         Glide.with(this)
